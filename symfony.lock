@@ -93,6 +93,18 @@
             "config/packages/dev/easy_log_handler.yaml"
         ]
     },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "258300d52be6ad59b32a888d5ddafbf9638540ff"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
     "hoa/compiler": {
         "version": "3.17.08.08"
     },
@@ -339,7 +351,13 @@
             "config/routes.yaml"
         ]
     },
+    "symfony/security-core": {
+        "version": "v4.2.4"
+    },
     "symfony/stopwatch": {
+        "version": "v4.2.4"
+    },
+    "symfony/templating": {
         "version": "v4.2.4"
     },
     "symfony/twig-bridge": {
@@ -384,6 +402,12 @@
     },
     "twig/twig": {
         "version": "v2.7.4"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     },
     "zendframework/zend-code": {
         "version": "3.3.1"
