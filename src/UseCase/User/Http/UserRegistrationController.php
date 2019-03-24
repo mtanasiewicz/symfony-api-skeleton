@@ -5,7 +5,7 @@ namespace App\UseCase\User\Http;
 
 
 use App\Shared\Http\ApiControllerBase;
-use App\UseCase\User\Domain\Model\User;
+use App\Shared\Model\Entity\User;
 use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
