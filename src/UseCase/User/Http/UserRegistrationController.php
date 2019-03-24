@@ -4,17 +4,20 @@
 namespace App\UseCase\User\Http;
 
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Shared\Http\ApiControllerBase;
+use App\UseCase\User\Domain\Model\UserDto;
+use FOS\RestBundle\Controller\Annotations\Route;
 
-class UserRegistrationController extends AbstractController
+/**
+ * @Route(path="/api")
+ */
+class UserRegistrationController extends ApiControllerBase
 {
     /**
      * @Route(path="/register")
      */
     public function registerUserAction()
     {
-        return new Response('HELLO!');
+        return new UserDto('email@example.com', 'Janusz Twardy');
     }
 }
