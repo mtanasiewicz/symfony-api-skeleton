@@ -20,10 +20,11 @@ doctrine:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
         mappings:
             User:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/UseCase/User/Domain/Entity'
-                prefix: 'App\UseCase\User\Domain\Entity'
-                alias: User
+                prefix: 'App\UseCase\User\Domain\Model\Entity'
+                alias: Entity

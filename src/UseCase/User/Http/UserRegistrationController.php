@@ -1,20 +1,20 @@
 <?php
 
 
-namespace App\Controller\UseCase\User;
+namespace App\UseCase\User\Http;
 
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class RegistrationController extends AbstractController
+class UserRegistrationController extends AbstractController
 {
     /**
      * @Route(path="/register")
      */
     public function registerUserAction()
     {
-        return new Response("HELLO WORLD!");
+        return new Response('HELLO!');
     }
 }
