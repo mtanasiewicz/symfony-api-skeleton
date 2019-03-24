@@ -5,7 +5,7 @@ namespace App\UseCase\User\Http;
 
 
 use App\Shared\Http\ApiControllerBase;
-use App\UseCase\User\Domain\Model\UserDto;
+use App\UseCase\User\Domain\Model\User;
 use FOS\RestBundle\Controller\Annotations\Route;
 
 /**
@@ -18,6 +18,6 @@ class UserRegistrationController extends ApiControllerBase
      */
     public function registerUserAction()
     {
-        return new UserDto('email@example.com', 'Janusz Twardy');
+        return new User('email@example.com', 'Janusz Twardy');
     }
 }

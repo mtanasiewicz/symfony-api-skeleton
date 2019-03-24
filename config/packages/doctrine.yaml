@@ -22,9 +22,9 @@ doctrine:
         auto_mapping: true
 
         mappings:
-            User:
+            Shared:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/UseCase/User/Domain/Entity'
-                prefix: 'App\UseCase\User\Domain\Model\Entity'
+                prefix: App\Shared\Model\Entity
+                dir: '%kernel.project_dir%/src/Shared/Model/Entity'
                 alias: Entity
