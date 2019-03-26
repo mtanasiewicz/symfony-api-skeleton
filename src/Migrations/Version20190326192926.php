@@ -23,6 +23,7 @@ final class Version20190326192926 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE user ADD name VARCHAR(255) NOT NULL');
+        $this->addSql('UPDATE user SET name = "Janusz"');
     }
 
     public function down(Schema $schema) : void
