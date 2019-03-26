@@ -11,6 +11,7 @@ use Gesdinet\JWTRefreshTokenBundle\Entity\AbstractRefreshToken;
  * This class override Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken to have another table name.
  *
  * @ORM\Table("refresh_token")
+ * @ORM\Entity
  */
 class RefreshToken extends AbstractRefreshToken
 {
