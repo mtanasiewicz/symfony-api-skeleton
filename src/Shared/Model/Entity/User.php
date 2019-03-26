@@ -42,11 +42,6 @@ class User
      */
     private $addresses;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Shared\Model\Entity\Wallet", mappedBy="user")
-     */
-    private $wallets;
-
     public function __construct(string $email, string $password, string $name)
     {
         $this->addresses = new ArrayCollection();
@@ -101,37 +96,6 @@ class User
         if ($this->addresses->contains($address)) {
             $this->addresses->removeElement($address);
             $address->removeUser($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Wallet[]
-     */
-    public function getWallets(): Collection
-    {
-        return $this->wallets;
-    }
-
-    public function addWallet(Wallet $wallet): self
-    {
-        if (!$this->wallets->contains($wallet)) {
-            $this->wallets[] = $wallet;
-            $wallet->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeWallet(Wallet $wallet): self
-    {
-        if ($this->wallets->contains($wallet)) {
-            $this->wallets->removeElement($wallet);
-            // set the owning side to null (unless already changed)
-            if ($wallet->getUser() === $this) {
-                $wallet->setUser(null);
-            }
         }
 
         return $this;
