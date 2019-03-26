@@ -26,6 +26,12 @@ class User
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=false)
+     * @var string
+     */
+    private $name;
+
+    /**
      * @ORM\Column(type="string", length=255)
      * @var string
      */
@@ -41,12 +47,13 @@ class User
      */
     private $wallets;
 
-    public function __construct(string $email, string $password)
+    public function __construct(string $email, string $password, string $name)
     {
-        $this->email = $email;
-        $this->password = $password;
         $this->addresses = new ArrayCollection();
         $this->wallets = new ArrayCollection();
+        $this->email = $email;
+        $this->password = $password;
+        $this->name = $name;
     }
 
 
@@ -64,6 +71,11 @@ class User
     public function getPassword(): ?string
     {
         return $this->password;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     /**
