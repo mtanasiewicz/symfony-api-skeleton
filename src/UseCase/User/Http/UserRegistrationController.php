@@ -9,14 +9,14 @@ use App\Shared\Model\Entity\Address;
 use App\Shared\Model\Entity\RefreshToken;
 use App\Shared\Model\Entity\User;
 use App\Shared\Model\Entity\Wallet;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Faker\Factory;
-use FOS\RestBundle\Controller\Annotations\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route(path="/api")
- */
-class UserRegistrationController extends ApiControllerBase
+class UserRegistrationController extends AbstractController
 {
     /**
      * @Route(path="/register")
@@ -33,6 +33,8 @@ class UserRegistrationController extends ApiControllerBase
 
             $refreshToken = new RefreshToken();
             $refreshToken->setRefreshToken();
+            $refreshToken->setUsername($user->getEmail());
+            $refreshToken->setValid((new DateTime())->modify('+ 10 days'));
 
             $wallet = new Wallet();
             $wallet->setToken(uniqid());
@@ -54,6 +56,8 @@ class UserRegistrationController extends ApiControllerBase
                 $entityManager->clear();
             }
         }
+
+        return new Response('yo');
 
         return new User('email@example.com', 'Janusz Twardy');
     }

@@ -2,6 +2,7 @@ version: '2'
 
 services:
   mysql:
+    container_name: database
     image: mysql:5.7.25
     restart: always
     ports:
@@ -9,6 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: symfony
   php:
+    container_name: application
     build: php-fpm
     ports:
       - '9002:9000'
@@ -18,6 +20,7 @@ services:
     links:
       - mysql
   nginx:
+    container_name: webserver
     build: nginx
     ports:
       - '8080:80'
