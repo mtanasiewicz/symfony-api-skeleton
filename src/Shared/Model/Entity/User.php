@@ -37,15 +37,8 @@ class User
      */
     private $password;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Shared\Model\Entity\Address", mappedBy="user", cascade={"ALL"})
-     */
-    private $addresses;
-
     public function __construct(string $email, string $password, string $name)
     {
-        $this->addresses = new ArrayCollection();
-        $this->wallets = new ArrayCollection();
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
@@ -71,33 +64,5 @@ class User
     public function getName(): string
     {
         return $this->name;
-    }
-
-    /**
-     * @return Collection|Address[]
-     */
-    public function getAddresses(): Collection
-    {
-        return $this->addresses;
-    }
-
-    public function addAddress(Address $address): self
-    {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses[] = $address;
-            $address->addUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAddress(Address $address): self
-    {
-        if ($this->addresses->contains($address)) {
-            $this->addresses->removeElement($address);
-            $address->removeUser($this);
-        }
-
-        return $this;
     }
 }
